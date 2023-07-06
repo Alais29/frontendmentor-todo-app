@@ -22,7 +22,6 @@
         "prettier"
     ],
     "rules": {
-        "no-unused-vars": ["error", { "argsIgnorePattern": "next" }],
         "react/react-in-jsx-scope": "off",
         "camelcase": "error",
         "spaced-comment": "error",
