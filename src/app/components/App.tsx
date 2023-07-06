@@ -1,4 +1,3 @@
-import './App.css'
 import { useEffect, useState } from 'react'
 import { TaskAdapter } from '../../adapters/services/TaskAdapter'
 import { LocalStorageTasksRepository } from '../../adapters/repositories/LocalStorageTasksRepository'
