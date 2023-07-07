@@ -1,0 +1,30 @@
+@use '../../../assets/styles/abstracts' as *;
+
+.layout {
+  padding: 3rem 1.5rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+
+  &__header {
+    position: absolute;
+    top: 0;
+    height: 200px;
+    width: 100%;
+    background-image: url('../../../assets/images/bg-mobile-light.jpg');
+    background-size: cover;
+    z-index: -1;
+  }
+}
+
+@include screen-xs {
+  .layout {
+    &__header {
+      background-image: url('../../../assets/images/bg-desktop-light.jpg');
+      height: 300px;
+    }
+  }
+}

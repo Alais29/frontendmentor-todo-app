@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { TaskAdapter } from '../../adapters/services/TaskAdapter'
 import { LocalStorageTasksRepository } from '../../adapters/repositories/LocalStorageTasksRepository'
 import { ITaskWitId } from '../../common/interfaces'
+import { Layout } from './Layout/Layout'
 
 export const App = () => {
   const [taskInput, setTaskInput] = useState('')
@@ -45,7 +46,7 @@ export const App = () => {
   }
 
   return (
-    <>
+    <Layout>
       <h1>TODO ✨</h1>
       <form onSubmit={handleSubmit}>
         <input
@@ -63,6 +64,6 @@ export const App = () => {
           </li>
         ))}
       </ul>
-    </>
+    </Layout>
   )
 }
