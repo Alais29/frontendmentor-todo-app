@@ -18,6 +18,11 @@
     background-size: cover;
     z-index: -1;
   }
+
+  &__content {
+    width: 90%;
+    max-width: 33.75rem;
+  }
 }
 
 @include screen-xs {

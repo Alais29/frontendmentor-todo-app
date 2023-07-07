@@ -1,0 +1,24 @@
+@use '../../../assets/styles/abstracts' as *;
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  margin-bottom: 2.5rem;
+  font-size: 0.8rem;
+
+  &__text {
+    letter-spacing: 0.6rem;
+  }
+}
+
+@include screen-xs {
+  .title {
+    margin-bottom: 3rem;
+
+    &__text {
+      letter-spacing: 0.9375rem;
+    }
+  }
+}

@@ -3,6 +3,7 @@ import { TaskAdapter } from '../../adapters/services/TaskAdapter'
 import { LocalStorageTasksRepository } from '../../adapters/repositories/LocalStorageTasksRepository'
 import { ITaskWitId } from '../../common/interfaces'
 import { Layout } from './Layout/Layout'
+import { Title } from './Title/Title'
 
 export const App = () => {
   const [taskInput, setTaskInput] = useState('')
@@ -47,7 +48,7 @@ export const App = () => {
 
   return (
     <Layout>
-      <h1>TODO ✨</h1>
+      <Title title={'TODO'} />
       <form onSubmit={handleSubmit}>
         <input
           type='text'
