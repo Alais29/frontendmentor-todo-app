@@ -4,11 +4,24 @@ import { LocalStorageTasksRepository } from '../../adapters/repositories/LocalSt
 import { ITaskWitId } from '../../common/interfaces'
 import { Layout } from './Layout/Layout'
 import { Title } from './Title/Title'
+import { Input } from './CheckboxInput/CheckboxInput'
 
 export const App = () => {
-  const [taskInput, setTaskInput] = useState('')
+  const [task, setTask] = useState({
+    title: '',
+    completed: false,
+  })
   const [tasks, setTasks] = useState<ITaskWitId[]>([])
   const taskAdapter = new TaskAdapter(new LocalStorageTasksRepository())
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue =
+      e.target.type === 'checkbox' ? e.target.checked : e.target.value
+    setTask({
+      ...task,
+      [e.target.name]: inputValue,
+    })
+  }
 
   useEffect(() => {
     taskAdapter.getTasks().then((apiTasks) => setTasks(apiTasks))
@@ -16,11 +29,12 @@ export const App = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const newTask = await taskAdapter.createTask({
-      title: taskInput,
+    const newTask = await taskAdapter.createTask(task)
+    setTasks([...tasks, newTask])
+    setTask({
+      title: '',
       completed: false,
     })
-    setTasks([...tasks, newTask])
   }
 
   const handleToggle = async (taskId: string) => {
@@ -50,11 +64,13 @@ export const App = () => {
     <Layout>
       <Title title={'TODO'} />
       <form onSubmit={handleSubmit}>
-        <input
-          type='text'
+        <Input
           placeholder='add new task'
-          value={taskInput}
-          onChange={(e) => setTaskInput(e.target.value)}
+          inputValue={task.title}
+          inputName={'title'}
+          checkboxValue={task.completed}
+          checkboxName='completed'
+          onChange={handleChange}
         />
       </form>
       <ul>
