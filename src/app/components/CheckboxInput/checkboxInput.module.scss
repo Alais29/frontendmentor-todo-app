@@ -1,0 +1,58 @@
+@use '../../../assets/styles/abstracts' as *;
+
+.input-container {
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 0.3125rem;;
+
+  .textinput {
+    border: none;
+    outline: none;
+  }
+
+  .checkbox-container {
+    position: relative;
+  }
+
+  .checkbox-mark {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    opacity: 0;
+    transition: 300ms opacity linear;
+
+    &.active{
+      opacity: 1;
+      background: linear-gradient(145deg, $gradient-1 0%, $gradient-2 100%); 
+    }
+  }
+
+  .checkbox {
+    appearance: none;
+    margin: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px solid #E3E4F1;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-content: center;
+
+    &:checked {
+      border: none;
+    }
+
+    &::before {
+      content: '';
+    }
+
+    &:checked::before {
+      content: url('../../../assets/images/icon-check.svg');
+    }
+  }
+}
