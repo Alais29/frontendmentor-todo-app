@@ -4,7 +4,7 @@ import { LocalStorageTasksRepository } from '../../adapters/repositories/LocalSt
 import { ITaskWitId } from '../../common/interfaces'
 import { Layout } from './Layout/Layout'
 import { Title } from './Title/Title'
-import { Input } from './CheckboxInput/CheckboxInput'
+import { Input } from './Input/Input'
 
 export const App = () => {
   const [task, setTask] = useState({
@@ -68,6 +68,7 @@ export const App = () => {
           placeholder='add new task'
           inputValue={task.title}
           inputName={'title'}
+          showCheckbox
           checkboxValue={task.completed}
           checkboxName='completed'
           onChange={handleChange}

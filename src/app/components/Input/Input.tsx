@@ -1,37 +1,48 @@
 import classnames from 'classnames/bind'
-import styles from './checkboxInput.module.scss'
+import styles from './input.module.scss'
+import { Checkbox } from '../Checkbox/Checkbox'
 
 const cx = classnames.bind(styles)
 
-interface IInput {
+interface IInputCommonProps {
   placeholder: string
   inputValue: string
   inputName: string
-  checkboxValue: boolean
-  checkboxName: string
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
+
+type IInputConditionalProps =
+  | {
+      showCheckbox?: undefined | false
+      checkboxValue?: never
+      checkboxName?: never
+    }
+  | {
+      showCheckbox?: true
+      checkboxValue: boolean
+      checkboxName: string
+    }
+
+type IInput = IInputCommonProps & IInputConditionalProps
 
 export const Input = ({
   placeholder,
   inputValue,
   inputName,
-  checkboxValue,
+  showCheckbox,
   checkboxName,
+  checkboxValue,
   onChange,
 }: IInput) => {
   return (
     <div className={cx('inputContainer')}>
-      <div className={cx('checkboxContainer')}>
-        <div className={cx('checkboxMark', { active: checkboxValue })}></div>
-        <input
-          type='checkbox'
-          checked={checkboxValue}
+      {showCheckbox && (
+        <Checkbox
           onChange={onChange}
           name={checkboxName}
-          className={cx('checkbox')}
+          checked={checkboxValue}
         />
-      </div>
+      )}
       <input
         type='text'
         value={inputValue}
