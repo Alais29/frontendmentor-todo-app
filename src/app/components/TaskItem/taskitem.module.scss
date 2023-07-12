@@ -1,0 +1,36 @@
+@use '../../../assets/styles/abstracts/' as *;
+
+.task-item {
+  padding: to-rem(20) to-rem(24);
+  border-bottom: solid 1px $very-light-gray-blue;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover .task-item-delete-btn {
+    transition: opacity 500ms ease-in-out;
+    opacity: 1;
+  }
+
+  &-title {
+    &.active {
+      text-decoration: line-through;
+      color: $light-gray-blue-ltheme;
+    }
+  }
+
+  &-content {
+    display: flex;
+    align-items: center;
+    gap: to-rem(24);
+  }
+
+  &-delete-btn {
+    opacity: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
