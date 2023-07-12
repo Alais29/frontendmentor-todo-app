@@ -5,8 +5,8 @@ const cx = classnames.bind(styles)
 
 interface ICheckbox {
   checked: boolean
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   name: string
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 export const Checkbox = ({ checked, onChange, name }: ICheckbox) => {

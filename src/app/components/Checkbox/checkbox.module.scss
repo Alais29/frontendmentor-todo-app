@@ -29,6 +29,7 @@
   left: 0;
   display: grid;
   place-content: center;
+  cursor: pointer;
 
   &:checked {
     border: none;

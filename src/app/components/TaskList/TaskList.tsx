@@ -3,6 +3,7 @@ import { ItaskAdapter } from '../../../ports/ITaskAdapter'
 import { ITaskWitId } from '../../../common/interfaces'
 import classnames from 'classnames/bind'
 import styles from './tasklist.module.scss'
+import { TaskItem } from '../TaskItem/TaskItem'
 
 const cx = classnames.bind(styles)
 
@@ -40,10 +41,12 @@ export const TaskList = ({ tasks, taskAdapter, setTasks }: ITaskList) => {
     <div className={cx('taskList')}>
       <ul>
         {tasks.map((task) => (
-          <li key={task.id} onClick={() => handleToggle(task.id)}>
-            {task.title} {task.completed ? '✅' : 'X'}
-            <button onClick={(e) => handleDelete(e, task.id)}>Delete</button>
-          </li>
+          <TaskItem
+            key={task.id}
+            task={task}
+            onToggle={handleToggle}
+            onDelete={handleDelete}
+          />
         ))}
       </ul>
     </div>
