@@ -5,6 +5,7 @@ import { ITaskWitId } from '../../common/interfaces'
 import { Layout } from './Layout/Layout'
 import { Title } from './Title/Title'
 import { Input } from './Input/Input'
+import { TaskList } from './TaskList/TaskList'
 
 export const App = () => {
   const [task, setTask] = useState({
@@ -23,10 +24,6 @@ export const App = () => {
     })
   }
 
-  useEffect(() => {
-    taskAdapter.getTasks().then((apiTasks) => setTasks(apiTasks))
-  }, [])
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const newTask = await taskAdapter.createTask(task)
@@ -37,28 +34,9 @@ export const App = () => {
     })
   }
 
-  const handleToggle = async (taskId: string) => {
-    const taskToUpdate = tasks.findIndex((task) => task.id === taskId)
-
-    const updatedTasks = [...tasks]
-    updatedTasks[taskToUpdate].toggle()
-    await taskAdapter.updateTask(taskId, {
-      completed: updatedTasks[taskToUpdate].completed,
-    })
-
-    setTasks(updatedTasks)
-  }
-
-  const handleDelete = async (
-    e: React.MouseEvent<HTMLButtonElement>,
-    taskId: string,
-  ) => {
-    e.stopPropagation()
-
-    const updatedTasks = tasks.filter((task) => task.id !== taskId)
-    await taskAdapter.deleteTask(taskId)
-    setTasks(updatedTasks)
-  }
+  useEffect(() => {
+    taskAdapter.getTasks().then((apiTasks) => setTasks(apiTasks))
+  }, [])
 
   return (
     <Layout>
@@ -74,14 +52,7 @@ export const App = () => {
           onChange={handleChange}
         />
       </form>
-      <ul>
-        {tasks.map((task) => (
-          <li key={task.id} onClick={() => handleToggle(task.id)}>
-            {task.title} {task.completed ? '✅' : 'X'}
-            <button onClick={(e) => handleDelete(e, task.id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
+      <TaskList tasks={tasks} taskAdapter={taskAdapter} setTasks={setTasks} />
     </Layout>
   )
 }
