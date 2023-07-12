@@ -8,6 +8,7 @@
   align-items: center;
   text-align: center;
   position: relative;
+  background-color: $very-light-gray;
 
   &__header {
     position: absolute;
@@ -16,12 +17,13 @@
     width: 100%;
     background-image: url('../../../assets/images/bg-mobile-light.jpg');
     background-size: cover;
-    z-index: -1;
   }
 
   &__content {
+    position: relative;
     width: 100%;
     max-width: 33.75rem;
+    z-index: 2;
   }
 }
 
