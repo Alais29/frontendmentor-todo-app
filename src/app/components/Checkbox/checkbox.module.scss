@@ -5,8 +5,8 @@
 }
 
 .checkbox-mark {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: to-rem(24);
+  height: to-rem(24);
   border-radius: 50%;
   opacity: 0;
   transition: 200ms opacity linear;
@@ -20,8 +20,8 @@
 .checkbox {
   appearance: none;
   margin: 0;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: to-rem(24);
+  height: to-rem(24);
   border: 1px solid #e3e4f1;
   border-radius: 50%;
   position: absolute;
