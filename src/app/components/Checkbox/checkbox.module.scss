@@ -2,18 +2,52 @@
 
 .checkbox-container {
   position: relative;
+
+  &:hover > .checkbox-mark {
+    background: linear-gradient(145deg, $gradient-1 0%, $gradient-2 100%);
+  }
 }
 
 .checkbox-mark {
+  position: relative;
   width: to-rem(24);
   height: to-rem(24);
   border-radius: 50%;
-  opacity: 0;
   transition: 200ms opacity linear;
+  background: #e3e4f1;
 
-  &.active {
+  &::before {
+    content: '';
+    width: to-rem(23);
+    height: to-rem(23);
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 0.9px;
+    left: 0.3px;
     opacity: 1;
+  }
+
+  &::after {
+    content: '';
+    width: to-rem(23);
+    height: to-rem(23);
     background: linear-gradient(145deg, $gradient-1 0%, $gradient-2 100%);
+    border-radius: 50%;
+    position: absolute;
+    top: 0.9px;
+    left: 0.3px;
+    opacity: 0;
+  }
+
+  &.active::before {
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+  }
+
+  &.active::after {
+    opacity: 1;
+    transition: opacity 300ms ease-in-out;
   }
 }
 
@@ -22,7 +56,6 @@
   margin: 0;
   width: to-rem(24);
   height: to-rem(24);
-  border: 1px solid #e3e4f1;
   border-radius: 50%;
   position: absolute;
   top: 0;
@@ -30,10 +63,6 @@
   display: grid;
   place-content: center;
   cursor: pointer;
-
-  &:checked {
-    border: none;
-  }
 
   &::before {
     content: '';
