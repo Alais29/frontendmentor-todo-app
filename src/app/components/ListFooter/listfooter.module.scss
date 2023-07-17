@@ -1,0 +1,31 @@
+@use '../../../assets/styles/abstracts/' as *;
+
+.list-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: to-rem(20) to-rem(24);
+
+  &-filter {
+    display: flex;
+    gap: to-rem(19);
+
+    input {
+      display: none;
+    }
+
+    label {
+      cursor: pointer;
+
+      &.active {
+        color: $primary;
+      }
+    }
+  }
+
+  &-clear-btn {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+  }
+}

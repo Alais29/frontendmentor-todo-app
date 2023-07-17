@@ -24,4 +24,12 @@ export class TaskAdapter implements ItaskAdapter {
   deleteTask(taskId: string): Promise<void> {
     return this.repository.delete(taskId)
   }
+
+  async deleteCompleted(tasksIds: string[]): Promise<void> {
+    await Promise.all(
+      tasksIds.map(async (taskId) => {
+        await this.repository.delete(taskId)
+      }),
+    )
+  }
 }

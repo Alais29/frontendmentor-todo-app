@@ -5,4 +5,5 @@ export interface ItaskAdapter {
   createTask(task: ITask): Promise<ITaskWitId>
   updateTask(taskId: string, data: Partial<ITask>): Promise<ITaskWitId>
   deleteTask(taskId: string): Promise<void>
+  deleteCompleted(tasksIds: string[]): Promise<void>
 }
