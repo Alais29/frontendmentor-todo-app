@@ -15,6 +15,11 @@
 
     label {
       cursor: pointer;
+      transition: color 300ms ease-in-out;
+
+      &:hover {
+        color: $primary;
+      }
 
       &.active {
         color: $primary;
@@ -27,5 +32,10 @@
     border: none;
     background-color: transparent;
     padding: 0;
+    transition: color 300ms ease-in-out;
+
+    &:hover {
+      color: $primary;
+    }
   }
 }
