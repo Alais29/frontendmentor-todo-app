@@ -1,0 +1,11 @@
+.form {
+  position: relative;
+}
+
+.empty-input-error {
+  position: absolute;
+  top: -31px;
+  width: 100%;
+  border-radius: 0.3125rem;
+  background-color: #ffa1a1;
+}

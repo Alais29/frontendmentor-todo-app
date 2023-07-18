@@ -6,6 +6,10 @@ import { Layout } from './Layout/Layout'
 import { Title } from './Title/Title'
 import { Input } from './Input/Input'
 import { TaskList } from './TaskList/TaskList'
+import classnames from 'classnames/bind'
+import styles from './app.module.scss'
+
+const cx = classnames.bind(styles)
 
 export const App = () => {
   const [task, setTask] = useState({
@@ -15,6 +19,7 @@ export const App = () => {
   const [tasks, setTasks] = useState<ITaskWitId[]>([])
   const [filteredTasks, setFilteredTasks] = useState([...tasks])
   const [filter, setFilter] = useState<'all' | 'completed' | 'active'>('all')
+  const [showError, setShowError] = useState(false)
   const taskAdapter = new TaskAdapter(new LocalStorageTasksRepository())
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,6 +33,13 @@ export const App = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+
+    if (task.title === '') {
+      setShowError(true)
+      setTimeout(() => setShowError(false), 3000)
+      return
+    }
+
     const newTask = await taskAdapter.createTask(task)
     setTasks([...tasks, newTask])
     setTask({
@@ -100,7 +112,10 @@ export const App = () => {
   return (
     <Layout>
       <Title title={'TODO'} />
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={cx('form')}>
+        {showError && (
+          <p className={cx('emptyInputError')}>Please enter a task</p>
+        )}
         <Input
           placeholder='add new task'
           inputValue={task.title}
