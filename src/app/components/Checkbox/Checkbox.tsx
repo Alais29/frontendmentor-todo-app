@@ -9,7 +9,13 @@ interface ICheckbox {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-export const Checkbox = ({ checked, onChange, name }: ICheckbox) => {
+export const Checkbox = ({
+  checked,
+  onChange = () => {
+    return
+  },
+  name,
+}: ICheckbox) => {
   return (
     <div className={cx('checkboxContainer')}>
       <div className={cx('checkboxMark', { active: checked })}></div>
