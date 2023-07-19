@@ -2,7 +2,7 @@
 
 .task-item {
   padding: to-rem(20) to-rem(24);
-  border-bottom: solid 1px $very-light-gray-blue;
+  border-bottom: solid 1px var(--checkbox-border);
   text-align: left;
   display: flex;
   justify-content: space-between;
@@ -15,9 +15,11 @@
   }
 
   &-title {
+    color: var(--text-primary);
+
     &.active {
       text-decoration: line-through;
-      color: $light-gray-blue-ltheme;
+      color: var(--text-tertiary);
     }
   }
 

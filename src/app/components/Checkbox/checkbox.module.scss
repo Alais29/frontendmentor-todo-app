@@ -14,13 +14,13 @@
   height: to-rem(24);
   border-radius: 50%;
   transition: 200ms opacity linear;
-  background: #e3e4f1;
+  background: var(--checkbox-border);
 
   &::before {
     content: '';
     width: to-rem(23);
     height: to-rem(23);
-    background: #fff;
+    background: var(--list-background);
     border-radius: 50%;
     position: absolute;
     top: 0.9px;

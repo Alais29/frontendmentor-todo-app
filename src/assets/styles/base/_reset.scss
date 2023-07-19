@@ -1,7 +1,30 @@
-@use '../abstracts/variables' as *;
+@use '../abstracts' as *;
 
 :root {
   font-size: $font-size;
+
+  --accent: #{$primary};
+  --background: #{$very-light-gray};
+  --list-background: #{#ffffff};
+  --text-primary: #{$very-dark-gray-blue-ltheme};
+  --text-secondary: #{$dark-gray-blue};
+  --text-tertiary: #{$light-gray-blue-ltheme};
+  --checkbox-border: #{$very-light-gray-blue};
+  --list-shadow: 0 35px 50px -15px rgb(194 195 214 / 50%);
+  --layout-background-mb: url('/src/assets/images/bg-mobile-light.jpg');
+  --layout-background-dk: url('/src/assets/images/bg-desktop-light.jpg');
+}
+
+[data-theme='dark'] {
+  --background: #{$very-dark-blue};
+  --list-background: #{$very-dark-desat-blue};
+  --text-primary: #{$light-gray-blue-dtheme};
+  --text-secondary: #{$dark-gray-blue-dtheme};
+  --text-tertiary: #{$light-gray-blue-dtheme-2};
+  --checkbox-border: #{$very-dark-gray-blue-dtheme};
+  --list-shadow: 0px 35px 50px -15px rgb(0 0 0 / 50%);
+  --layout-background-mb: url('/src/assets/images/bg-mobile-dark.jpg');
+  --layout-background-dk: url('/src/assets/images/bg-desktop-dark.jpg');
 }
 
 *,

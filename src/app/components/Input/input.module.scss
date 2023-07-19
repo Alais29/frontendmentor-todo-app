@@ -1,17 +1,19 @@
 @use '../../../assets/styles/abstracts' as *;
 
 .input-container {
-  background-color: #fff;
+  background-color: var(--list-background);
   padding: to-rem(20) to-rem(24);
   display: flex;
   align-items: center;
   gap: 1rem;
   border-radius: 0.3125rem;
-  box-shadow: 0 35px 50px -15px rgb(194 195 214 / 50%);
+  box-shadow: var(--list-shadow);
 
   .textinput {
+    background-color: transparent;
     border: none;
     outline: none;
     width: 100%;
+    color: var(--text-primary);
   }
 }
