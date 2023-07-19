@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import useLocalStorage from 'use-local-storage'
+import classnames from 'classnames/bind'
 import { TaskAdapter } from '../../adapters/services/TaskAdapter'
 import { LocalStorageTasksRepository } from '../../adapters/repositories/LocalStorageTasksRepository'
 import { ITaskWitId } from '../../common/interfaces'
@@ -6,12 +8,17 @@ import { Layout } from './Layout/Layout'
 import { Title } from './Title/Title'
 import { Input } from './Input/Input'
 import { TaskList } from './TaskList/TaskList'
-import classnames from 'classnames/bind'
 import styles from './app.module.scss'
 
 const cx = classnames.bind(styles)
 
 export const App = () => {
+  const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+
+  const [theme, setTheme] = useLocalStorage<'dark' | 'light'>(
+    'theme',
+    defaultDark ? 'dark' : 'light',
+  )
   const [task, setTask] = useState({
     title: '',
     completed: false,
@@ -20,7 +27,12 @@ export const App = () => {
   const [filteredTasks, setFilteredTasks] = useState([...tasks])
   const [filter, setFilter] = useState<'all' | 'completed' | 'active'>('all')
   const [showError, setShowError] = useState(false)
+
   const taskAdapter = new TaskAdapter(new LocalStorageTasksRepository())
+
+  const switchTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark')
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue =
@@ -111,13 +123,13 @@ export const App = () => {
 
   return (
     <Layout>
-      <Title title={'TODO'} />
+      <Title title={'TODO'} handleTheme={switchTheme} />
       <form onSubmit={handleSubmit} className={cx('form')}>
         {showError && (
           <p className={cx('emptyInputError')}>Please enter a task</p>
         )}
         <Input
-          placeholder='add new task'
+          placeholder='Create a new todo...'
           inputValue={task.title}
           inputName={'title'}
           showCheckbox

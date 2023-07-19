@@ -8,14 +8,14 @@
   align-items: center;
   text-align: center;
   position: relative;
-  background-color: $very-light-gray;
+  background-color: var(--background);
 
   &__header {
     position: absolute;
     top: 0;
     height: 200px;
     width: 100%;
-    background-image: url('../../../assets/images/bg-mobile-light.jpg');
+    background-image: var(--layout-background-mb);
     background-size: cover;
   }
 
@@ -30,7 +30,7 @@
 @include screen-xs {
   .layout {
     &__header {
-      background-image: url('../../../assets/images/bg-desktop-light.jpg');
+      background-image: var(--layout-background-dk);
       height: 300px;
     }
   }

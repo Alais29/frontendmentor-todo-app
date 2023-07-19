@@ -4,6 +4,8 @@
   display: flex;
   justify-content: space-between;
   padding: to-rem(20) to-rem(24);
+  color: var(--text-secondary);
+  font-size: to-rem(14);
 
   &-filter {
     display: flex;
@@ -16,13 +18,14 @@
     label {
       cursor: pointer;
       transition: color 300ms ease-in-out;
+      font-weight: 700;
 
       &:hover {
-        color: $primary;
+        color: var(--text-primary);
       }
 
       &.active {
-        color: $primary;
+        color: var(--accent);
       }
     }
   }
@@ -33,9 +36,11 @@
     background-color: transparent;
     padding: 0;
     transition: color 300ms ease-in-out;
+    color: var(--text-secondary);
+    font-size: to-rem(14);
 
     &:hover {
-      color: $primary;
+      color: var(--text-primary);
     }
   }
 }
