@@ -11,6 +11,10 @@
   &__text {
     letter-spacing: 0.6rem;
   }
+
+  img {
+    cursor: pointer;
+  }
 }
 
 @include screen-xs {

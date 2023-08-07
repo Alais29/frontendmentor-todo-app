@@ -12,4 +12,9 @@
     margin: 0;
     padding: 0;
   }
+
+  &-empty {
+    padding: 1.25rem 1.5rem;
+    color: var(--text-secondary);
+  }
 }
