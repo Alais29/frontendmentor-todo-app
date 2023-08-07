@@ -29,16 +29,20 @@ export const TaskList = ({
 }: ITaskList) => {
   return (
     <div className={cx('taskList')}>
-      <ul>
-        {tasks.map((task) => (
-          <TaskItem
-            key={task.id}
-            task={task}
-            onToggle={handleToggle}
-            onDelete={handleDelete}
-          />
-        ))}
-      </ul>
+      {tasks.length === 0 ? (
+        <p className={cx('taskListEmpty')}>There are no tasks</p>
+      ) : (
+        <ul>
+          {tasks.map((task) => (
+            <TaskItem
+              key={task.id}
+              task={task}
+              onToggle={handleToggle}
+              onDelete={handleDelete}
+            />
+          ))}
+        </ul>
+      )}
       <ListFooter
         tasks={tasks}
         filter={filter}
