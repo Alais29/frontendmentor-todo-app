@@ -2,7 +2,7 @@
 
 .input-container {
   background-color: var(--list-background);
-  padding: to-rem(20) to-rem(24);
+  padding: to-rem(14) to-rem(20);
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -15,5 +15,16 @@
     outline: none;
     width: 100%;
     color: var(--text-primary);
+    font-size: to-rem(12);
+  }
+}
+
+@include screen-xs {
+  .input-container {
+    padding: to-rem(20) to-rem(24);
+
+    .textinput {
+      font-size: to-rem(18);
+    }
   }
 }

@@ -2,7 +2,7 @@
 
 .task-list {
   background-color: var(--list-background);
-  margin: to-rem(24) 0;
+  margin: 16px 0;
   border-radius: 5px;
   box-shadow: var(--list-shadow);
   position: relative;
@@ -16,5 +16,11 @@
   &-empty {
     padding: 1.25rem 1.5rem;
     color: var(--text-secondary);
+  }
+}
+
+@include screen-xs {
+  .task-list {
+    margin: 24px 0;
   }
 }

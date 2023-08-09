@@ -1,7 +1,7 @@
 @use '../../../assets/styles/abstracts' as *;
 
 .layout {
-  padding: 3rem 1.5rem;
+  padding: 48px 26px;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -29,6 +29,8 @@
 
 @include screen-xs {
   .layout {
+    padding: to-rem(70) to-rem(26);
+
     &__header {
       background-image: var(--layout-background-dk);
       height: 300px;

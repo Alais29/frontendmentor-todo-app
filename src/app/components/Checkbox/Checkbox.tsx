@@ -18,7 +18,9 @@ export const Checkbox = ({
 }: ICheckbox) => {
   return (
     <div className={cx('checkboxContainer')}>
-      <div className={cx('checkboxMark', { active: checked })}></div>
+      <div className={cx('checkboxMark', { active: checked })}>
+        <div className={cx('checkboxBackground', { fill: checked })}></div>
+      </div>
       <input
         type='checkbox'
         checked={checked}

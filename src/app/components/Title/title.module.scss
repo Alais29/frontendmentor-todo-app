@@ -5,8 +5,9 @@
   justify-content: space-between;
   align-items: center;
   color: #fff;
-  margin-bottom: 1.5rem;
-  font-size: 0.8rem;
+  margin-bottom: 40px;
+  font-size: 0.6rem;
+  line-height: 0.7;
 
   &__text {
     letter-spacing: 0.6rem;
@@ -14,15 +15,22 @@
 
   img {
     cursor: pointer;
+    height: 20px;
   }
 }
 
 @include screen-xs {
   .title {
     margin-bottom: 2.5rem;
+    line-height: normal;
+    font-size: 0.8rem;
 
     &__text {
       letter-spacing: 0.9375rem;
+    }
+
+    img {
+      height: auto;
     }
   }
 }

@@ -1,7 +1,7 @@
 @use '../../../assets/styles/abstracts/' as *;
 
 .task-item {
-  padding: to-rem(20) to-rem(24);
+  padding: to-rem(16) to-rem(20);
   border-bottom: solid 1px var(--checkbox-border);
   text-align: left;
   display: flex;
@@ -16,6 +16,7 @@
 
   &-title {
     color: var(--text-primary);
+    font-size: to-rem(12);
 
     &.active {
       text-decoration: line-through;
@@ -30,9 +31,31 @@
   }
 
   &-delete-btn {
-    opacity: 0;
+    opacity: 1;
     border: none;
     background-color: transparent;
     cursor: pointer;
+
+    img {
+      height: 12px;
+    }
+  }
+}
+
+@include screen-xs {
+  .task-item {
+    padding: to-rem(20) to-rem(24);
+
+    &-title {
+      font-size: to-rem(18);
+    }
+
+    &-delete-btn {
+      opacity: 0;
+
+      img {
+        height: auto;
+      }
+    }
   }
 }

@@ -5,30 +5,7 @@
   justify-content: space-between;
   padding: to-rem(20) to-rem(24);
   color: var(--text-secondary);
-  font-size: to-rem(14);
-
-  &-filter {
-    display: flex;
-    gap: to-rem(19);
-
-    input {
-      display: none;
-    }
-
-    label {
-      cursor: pointer;
-      transition: color 300ms ease-in-out;
-      font-weight: 700;
-
-      &:hover {
-        color: var(--text-primary);
-      }
-
-      &.active {
-        color: var(--accent);
-      }
-    }
-  }
+  font-size: to-rem(12);
 
   &-clear-btn {
     cursor: pointer;
@@ -37,10 +14,20 @@
     padding: 0;
     transition: color 300ms ease-in-out;
     color: var(--text-secondary);
-    font-size: to-rem(14);
+    font-size: to-rem(12);
 
     &:hover {
       color: var(--text-primary);
+    }
+  }
+}
+
+@include screen-xs {
+  .list-footer {
+    font-size: to-rem(14);
+
+    &-clear-btn {
+      font-size: to-rem(14);
     }
   }
 }

@@ -9,8 +9,11 @@ import { Title } from './Title/Title'
 import { Input } from './Input/Input'
 import { TaskList } from './TaskList/TaskList'
 import styles from './app.module.scss'
+import { ListFooterFilter } from './ListFooterFilter/ListFooterFilter'
 
 const cx = classnames.bind(styles)
+
+type TaskFilter = 'all' | 'completed' | 'active'
 
 export const App = () => {
   const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -25,7 +28,7 @@ export const App = () => {
   })
   const [tasks, setTasks] = useState<ITaskWitId[]>([])
   const [filteredTasks, setFilteredTasks] = useState([...tasks])
-  const [filter, setFilter] = useState<'all' | 'completed' | 'active'>('all')
+  const [filter, setFilter] = useState<TaskFilter>('all')
   const [showError, setShowError] = useState(false)
 
   const taskAdapter = new TaskAdapter(new LocalStorageTasksRepository())
@@ -146,6 +149,11 @@ export const App = () => {
         filter={filter}
         setFilter={setFilter}
         handleClearCompleted={handleClearCompleted}
+      />
+      <ListFooterFilter
+        filter={filter}
+        handleFilterList={(e) => setFilter(e.target.value as TaskFilter)}
+        view='mobile'
       />
     </Layout>
   )
