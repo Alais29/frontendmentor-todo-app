@@ -10,52 +10,39 @@
 
 .checkbox-mark {
   position: relative;
-  width: to-rem(24);
-  height: to-rem(24);
+  width: 21px;
+  height: 21px;
   border-radius: 50%;
   transition: 200ms opacity linear;
   background: var(--checkbox-border);
 
-  &::before {
-    content: '';
-    width: to-rem(23);
-    height: to-rem(23);
+  .checkbox-background {
+    width: 19px;
+    height: 19px;
     background: var(--list-background);
     border-radius: 50%;
-    position: absolute;
-    top: 0.9px;
-    left: 0.3px;
-    opacity: 1;
+    top: 1px;
+    position: relative;
+    left: 1px;
+
+    &.fill {
+      opacity: 0;
+      background: linear-gradient(145deg, $gradient-1 0%, $gradient-2 100%);
+    }
   }
 
-  &::after {
-    content: '';
-    width: to-rem(23);
-    height: to-rem(23);
-    background: linear-gradient(145deg, $gradient-1 0%, $gradient-2 100%);
-    border-radius: 50%;
-    position: absolute;
-    top: 0.9px;
-    left: 0.3px;
-    opacity: 0;
-  }
-
-  &.active::before {
-    opacity: 0;
-    transition: opacity 300ms ease-in-out;
-  }
-
-  &.active::after {
-    opacity: 1;
-    transition: opacity 300ms ease-in-out;
+  &.active > .checkbox-background {
+    &.fill {
+      opacity: 1;
+    }
   }
 }
 
 .checkbox {
   appearance: none;
   margin: 0;
-  width: to-rem(24);
-  height: to-rem(24);
+  width: 21px;
+  height: 21px;
   border-radius: 50%;
   position: absolute;
   top: 0;
@@ -70,5 +57,22 @@
 
   &:checked::before {
     content: url('../../../assets/images/icon-check.svg');
+  }
+}
+
+@include screen-xs {
+  .checkbox {
+    width: 24px;
+    height: 24px;
+  }
+
+  .checkbox-mark {
+    width: 24px;
+    height: 24px;
+
+    .checkbox-background {
+      width: 22px;
+      height: 22px;
+    }
   }
 }

@@ -1,0 +1,53 @@
+@use '../../../assets/styles/abstracts/' as *;
+
+.list-footer-filter {
+  display: flex;
+  gap: to-rem(19);
+  color: var(--text-secondary);
+  font-size: to-rem(12);
+
+  &.desktop {
+    display: none;
+  }
+
+  &.mobile {
+    display: flex;
+    justify-content: center;
+    background-color: var(--list-background);
+    padding: to-rem(15);
+    position: relative;
+    border-radius: 5px;
+  }
+
+  input {
+    display: none;
+  }
+
+  label {
+    cursor: pointer;
+    transition: color 300ms ease-in-out;
+    font-weight: 700;
+
+    &:hover {
+      color: var(--text-primary);
+    }
+
+    &.active {
+      color: var(--accent);
+    }
+  }
+}
+
+@include screen-xs {
+  .list-footer-filter {
+    font-size: to-rem(14);
+
+    &.desktop {
+      display: flex;
+    }
+
+    &.mobile {
+      display: none;
+    }
+  }
+}
