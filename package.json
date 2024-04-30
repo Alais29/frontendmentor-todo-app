@@ -1,8 +1,10 @@
 {
   "name": "frontendmentor-todo-app",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "Todo app for a frontend mentor challenge, built to practice frontend skills and implementation of hexagonal architecture.",
+  "author": "Alfonsina Lizardo",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
