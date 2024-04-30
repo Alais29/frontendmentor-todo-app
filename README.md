@@ -1,6 +1,6 @@
-# React Vite Boilerplate ✨
+# Todo App ✨
 
-> This is a boilerplate project for starting React applications with Vite.
+> Todo app for a frontend mentor challenge, built to practice frontend skills and implementation of hexagonal architecture.
 
 Technologies used 👇:
 
@@ -63,8 +63,9 @@ Technologies used 👇:
 
 ## Author
 
-👤 **Leslie Herrera**
+👤 **Alfonsina Lizardo**
 
-- Twitter: [@dereemii](https://twitter.com/dereemii)
-- Github: [@Dereemii](https://github.com/Dereemii)
-- LinkedIn: [@dereemii](https://linkedin.com/in/dereemii)
+- Github: [@Alais29](https://github.com/Alais29)
+- LinkedIn: [@alais29dev](https://linkedin.com/in/alais29dev)
+- Instagram: [@alais29dev](https://www.instagram.com/alais29dev/)
+- Threads: [@alais29dev](https://www.threads.net/@alais29dev)

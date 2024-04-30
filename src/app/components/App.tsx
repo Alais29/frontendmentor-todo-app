@@ -86,7 +86,7 @@ export const App = () => {
     setTasks(updatedTasks)
   }
 
-  const handleFilter = (filterOption: 'all' | 'completed' | 'active') => {
+  const handleFilter = (filterOption: TaskFilter) => {
     if (filterOption === 'all') {
       setFilteredTasks([...tasks])
     } else if (filterOption === 'completed') {
