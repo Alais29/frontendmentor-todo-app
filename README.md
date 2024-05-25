@@ -69,3 +69,5 @@ Technologies used 👇:
 - LinkedIn: [@alais29dev](https://linkedin.com/in/alais29dev)
 - Instagram: [@alais29dev](https://www.instagram.com/alais29dev/)
 - Threads: [@alais29dev](https://www.threads.net/@alais29dev)
+
+Thanks! :)
