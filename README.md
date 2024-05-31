@@ -1,4 +1,4 @@
-# Todo App ✨
+# Todo App jakeada ✨
 
 > Todo app for a frontend mentor challenge, built to practice frontend skills and implementation of hexagonal architecture.
 
